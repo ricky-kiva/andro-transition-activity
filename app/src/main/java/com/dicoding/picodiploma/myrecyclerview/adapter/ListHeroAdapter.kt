@@ -48,7 +48,9 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, HeroActivity::class.java)
                 intent.putExtra("Hero", hero)
-                itemView.context.startActivity(intent)
+
+                // adding transition to intent
+                itemView.context.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(itemView.context as Activity).toBundle())
             }
         }
     }
